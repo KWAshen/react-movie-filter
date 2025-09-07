@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 const typemovies = [
    { title: 'Inception', genre: 'Fantascienza' },
    { title: 'Il Padrino', genre: 'Thriller' },
@@ -9,13 +11,26 @@ const typemovies = [
 
 function App() {
 
+  const [genre,setgenre] = useState("");
+  const [movie, setmovies] = useState(typemovies);
 
+  useEffect(() =>{
+    if(genre !== ''){
+      const selectdmovies = movies.filter(movie => movie.genre ===genre);
+      setmovies(selectdmovies);
+    }
+    else
+    {
+      setmovies(typemovies);
+    }
+  },[genre])
+  
   return (
     <>
     <div className="container my-5">
       <div className="row gy-4">
         <div className="col-12">
-          <select name="" id="" className="form select">
+          <select name="" id="" className="form select my-3">
             <option value="">Select Type</option>
             {typemovies.map((movie,index) => {
               return(
