@@ -12,7 +12,7 @@ const typemovies = [
 function App() {
 
   const [genre,setgenre] = useState("");
-  const [movie, setmovies] = useState(typemovies);
+  const [movies, setmovies] = useState(typemovies);
 
   useEffect(() =>{
     if(genre !== ''){
